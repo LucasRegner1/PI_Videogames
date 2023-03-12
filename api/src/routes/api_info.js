@@ -7,8 +7,6 @@ export default function arrvideogames() {
   return arrvideogames;
 }
 
-console.log(arrvideogames());
-
 module.exports = {
   arrvideogames,
 };
