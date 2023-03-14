@@ -12,6 +12,5 @@ const videogameRute = require("./videogames");
 
 router.use("/videogames", videogameRute);
 //router.use('/genres', genreRute)
-//router.use('/platforms', platformRute)
 
 module.exports = router;

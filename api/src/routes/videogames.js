@@ -1,6 +1,10 @@
 const { Router } = require("express");
 const router = Router();
-import { getApiInfo } from "../controllers/apiInfo";
+const {
+  getDbInfo,
+  getAllInfo,
+  getApiInfo,
+} = require("../controllers/videogames");
 const {
   OK,
   CREATED,
