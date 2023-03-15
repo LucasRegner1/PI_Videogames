@@ -2,23 +2,27 @@ const axios = require("axios");
 const { api_key } = process.env;
 const { Videogame, Genre } = require("../db");
 
-// api: {data: {results: [{juego1}, {juego2}]}}
-
 const getApiInfo = async () => {
-  const apiUrl = await axios.get(
-    `https://api.rawg.io/api/games?key=${api_key}`
-  );
-  const apiInfo = await apiUrl?.data?.results?.map((c) => {
-    return {
-      id: c.id,
-      name: c.name,
-      released: c.released,
-      background_image: c.background_image,
-      rating: c.rating,
-      platforms: c?.platforms?.map((p) => p.platform?.name),
-      genres: c?.genres?.map((g) => g?.name),
-    };
-  });
+  let apiInfo = [];
+  for (let i = 1; i <= 5; i++) {
+    const apiUrl = await axios.get(
+      `https://api.rawg.io/api/games?page=${i}&key=${api_key}`
+    );
+
+    apiInfo = apiInfo.concat(
+      apiUrl.data.results.map((c) => {
+        return {
+          id: c.id,
+          name: c.name,
+          released: c.released,
+          background_image: c.background_image,
+          rating: c.rating,
+          platforms: c?.platforms?.map((p) => p.platform?.name),
+          genres: c?.genres?.map((g) => g?.name),
+        };
+      })
+    );
+  }
   return apiInfo;
 };
 

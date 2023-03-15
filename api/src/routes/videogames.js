@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
   const { name } = req.query;
   try {
     let total = await getAllInfo();
+    console.log(total.length);
     if (name) {
       let found = await total.filter((g) =>
         g.name.toLowerCase().includes(name.toLowerCase())
