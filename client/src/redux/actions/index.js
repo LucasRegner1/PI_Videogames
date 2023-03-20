@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getCharacters = () => {
+export const getVideogames = () => {
   return async (dispatch) => {
     let json = await axios("http://localhost:3001/videogames");
     return dispatch({
