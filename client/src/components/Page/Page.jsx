@@ -1,5 +1,4 @@
 import React from "react";
-import "./page.css";
 import { useState } from "react";
 
 function Page({ gamesPerPage, allVideogames, page }) {

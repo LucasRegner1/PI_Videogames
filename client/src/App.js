@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
-import Description from "./components/Description/Description";
-import Form from "./components/Form/Form";
+import Detail from "./components/Detail";
+import Form from "./components/Form";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/videogames" component={Home} />
-          <Route exact path="/videogames/:id" component={Description} />
+          <Route exact path="/videogames/:id" component={Detail} />
           <Route exact path="/form" component={Form} />
         </Switch>
       </div>

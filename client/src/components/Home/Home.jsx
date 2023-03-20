@@ -10,8 +10,8 @@ import {
   getById,
   filterNew,
   filterApiDb,
-} from "../../actions/actions";
-import { Link } from "react";
+} from "../../redux/actions";
+import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import Card from "../Card/Card";
 import Page from "../Page/Page";
