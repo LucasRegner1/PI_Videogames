@@ -6,7 +6,7 @@ export default function LandingPage() {
   return (
     <div className={styles.background}>
       <h1> Bienvenidos a The Gamers' Hub!</h1>
-      <Link to="/home">
+      <Link to="/videogames">
         <button>Ingresar</button>
       </Link>
     </div>
