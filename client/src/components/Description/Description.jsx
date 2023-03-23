@@ -6,7 +6,6 @@ import Nav from "../Nav/Nav";
 import { Link } from "react-router-dom";
 
 function Description(prop) {
-  // console.log(prop.match.params.id)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
@@ -16,8 +15,6 @@ function Description(prop) {
   }, [dispatch]);
 
   const videogame = useSelector((state) => state.gameid);
-
-  // console.log('consoleLog1', videogame)
 
   let genres = [];
   let platforms = [];
@@ -39,7 +36,7 @@ function Description(prop) {
 
       <div className="generalContainer">
         <div className="containerDetailTitle">
-          <h1 className="detailTitle">GAME DETAILS</h1>
+          <h1 className="detailTitle">DETALLES</h1>
         </div>
         {
           <div className="descriptionContainer">
@@ -47,7 +44,7 @@ function Description(prop) {
             <div className="imgContainer">
               <h1 className="videogameName">{videogame.name}</h1>
               <h3 className="ratingDetail general">
-                populariy: {videogame.rating}
+                Popularidad: {videogame.rating}
               </h3>
               <h4 className="genresDetail general">{genres}</h4>
               <h4 className="platformDetail general">{platforms}</h4>
@@ -57,11 +54,10 @@ function Description(prop) {
                 alt={videogame.name}
               />
               <p className="releasedDetail general">
-                Released at: {videogame.released}
+                Fecha: {videogame.released}
               </p>
             </div>
             <div className="detailContainer">
-              {/* <div dangerouslySetInnerHTML={{__html: videogame.description}}/> */}
               <p className="descriptionDetail general">
                 {videogame?.description?.replace(/<[^>]*>?/g, "")}
               </p>

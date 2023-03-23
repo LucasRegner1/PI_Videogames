@@ -14,16 +14,16 @@ const validate = (input) => {
   let errors = {};
   console.log(input);
   if (!input.name) {
-    errors.name = "Name must be completed";
+    errors.name = "Debe ingresar el nombre";
   }
   if (!input.platforms.length) {
-    errors.platforms = "Platform must be completed";
+    errors.platforms = "Debe ingresar la plataforma";
   }
   if (!input.description) {
-    errors.description = "Description must be completed";
+    errors.description = "Debe ingresar una descripcion";
   }
   if (!input.genres.length) {
-    errors.genres = "genres must be completed";
+    errors.genres = "Debe ingresar el genero";
   }
   if (!input.released.length) {
     errors.released = "22/22/2222";
@@ -70,7 +70,6 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(input)
     const errorsFields = validate(input);
     setErrors(errorsFields);
     if (!Object.keys(errorsFields).length) {
@@ -84,10 +83,10 @@ function Form() {
         rating: "",
         image: "",
       });
-      alert("Videogame successfully created");
+      alert("Videojuego creado!");
       history.push("/videogames");
     } else {
-      alert("Please complete all the camps needed");
+      alert("Ingresar todos los campos necesarios");
     }
   };
 
@@ -126,11 +125,11 @@ function Form() {
           <Nav />
         </Link>
       </div>
-      <h1 className="title">CEATE YOUR VIDEOGAME!</h1>
+      <h1 className="title">CREAR VIDEOJUEGO</h1>
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
         <div className="formContainer">
           <div className="name formInput">
-            <label>Name:</label>
+            <label>Nombre:</label>
             <input
               className="inputName"
               onChange={(e) => handleChange(e)}
@@ -141,7 +140,7 @@ function Form() {
             {errors.name && <p className="error">{errors.name}</p>}
           </div>
           <div className="description formInput">
-            <label>Description:</label>
+            <label>Descripcion:</label>
             <input
               className="inputDescription"
               onChange={(e) => handleChange(e)}
@@ -154,7 +153,7 @@ function Form() {
             )}
           </div>
           <div className="realesed formInput">
-            <label>Released:</label>
+            <label>Fecha:</label>
             <input
               className="inputReleased"
               onChange={(e) => handleChange(e)}
@@ -164,7 +163,7 @@ function Form() {
             />
           </div>
           <div className="rating formInput">
-            <label>Rating:</label>
+            <label>Valoracion:</label>
             <input
               className="inputRating "
               onChange={(e) => handleChange(e)}
@@ -176,7 +175,7 @@ function Form() {
             />
           </div>
           <div className="image formInput">
-            <label>Image:</label>
+            <label>Imagen:</label>
             <input
               className="inputImage"
               onChange={(e) => handleChange(e)}
@@ -185,13 +184,16 @@ function Form() {
               name="image"
             />
           </div>
-          <p>Genres:</p>
+          <p>Generos:</p>
           {
             <select onChange={(e) => handleGenreSelect(e)}>
               {" "}
-              {genres.map((g) => (
-                <option value={g.name}>{g.name}</option>
-              ))}
+              {genres &&
+                genres.map((g) => (
+                  <option value={g.id} key={g.id}>
+                    {g.name}
+                  </option>
+                ))}
             </select>
           }
           <div className="containerDivGenres">
@@ -208,7 +210,7 @@ function Form() {
               </div>
             ))}
           </div>
-          <p className="pPlatforms">Platforms:</p>
+          <p className="pPlatforms">Plataforma:</p>
           {
             <select onChange={(e) => handlePlatformSelect(e)}>
               {" "}
@@ -234,7 +236,7 @@ function Form() {
         </div>
         <div className="containerSubmit">
           <button className="submit" type="submit">
-            Submit
+            Enviar
           </button>
         </div>
       </form>

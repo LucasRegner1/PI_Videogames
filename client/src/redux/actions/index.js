@@ -105,10 +105,11 @@ export const postVideogame = (payload) => {
 
 export const getPlatforms = () => {
   return async (dispatch) => {
-    let json = await axios.get("http://localhost:3001/videogames");
+    let json = await axios.get("http://localhost:3001/platforms");
+    console.log(json.data);
     return dispatch({
       type: "GET_PLATFORMS",
-      payload: json.data.platforms,
+      payload: json.data,
     });
   };
 };

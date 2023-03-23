@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 function SearchBar({ setCurrentPage }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
-  // const [currentPage, setCurrentPage] = useState(1)
   const [order, setOrder] = useState("");
 
   const handleInputChange = (e) => {
@@ -25,7 +24,7 @@ function SearchBar({ setCurrentPage }) {
       <input
         className="inputSearchbar"
         type="text"
-        placeholder="Search..."
+        placeholder="Buscar..."
         onChange={(e) => handleInputChange(e)}
       />
       <button
@@ -33,7 +32,7 @@ function SearchBar({ setCurrentPage }) {
         className="searchButton"
         onClick={(e) => handleClick(e)}
       >
-        Search
+        Buscar
       </button>
     </div>
   );

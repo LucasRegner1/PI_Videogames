@@ -1,17 +1,19 @@
 import React from "react";
+import s from "./Card.module.css";
 
 function Card({ name, image, genres, id, rating, createdInDb }) {
+  console.log(name, image, genres, id, rating);
   let genres2 = genres.map((e) => (e.name ? e.name : e));
   return (
-    <div className="cardContainer">
-      <div className="cardContainer2">
-        <p className="ratingCard">{rating}</p>
-        <img className="cardImage" src={image} />
-        <div className="genresTitle">
-          <div className="cardGenres">
+    <div className={s.card}>
+      <div>
+        <p>{rating}</p>
+        <img alt="imagen del juego" src={image} />
+        <div>
+          <div>
             <p> {genres2.join(", ")}</p>
           </div>
-          <h3 className="CardTitle">{name}</h3>
+          <h3>{name}</h3>
         </div>
       </div>
     </div>

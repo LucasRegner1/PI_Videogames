@@ -1,3 +1,31 @@
-.background{
-    background: url(https://i.pinimg.com/originals/9f/8a/5e/9f8a5ee191cae3d7802f368b24aeef87.jpg);
+
+.title{
+    color: white;
+    text-align: center;
+    font-family: 'Coda Caption', sans-serif;
+    font-weight: 800;
+    font-size: calc(20vw / var(--word-total) );
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    transform-style: preserve-3d;
+    --layer-depth: 0.32em;
+    position: relative;
+    display: inline-block; 
+    transform-style: preserve-3d; 
 }
+  .title {
+    --min-font-size: 20;
+    --max-font-size: 100;
+    font-size: calc(var(--min-font-size) * 1px);
+  }
+
+  .button {
+    background-color: white; 
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'Coda Caption', sans-serif;
+  }

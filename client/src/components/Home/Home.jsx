@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import Card from "../Card/Card";
 import Page from "../Page/Page";
+import s from "./Home.module.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -72,18 +73,12 @@ export default function Home() {
     setOrder(`Order ${e.target.value}`);
   };
 
-  const handleClickNew = (e) => {
-    e.preventDefault();
-    dispatch(filterNew(e));
-    setCurrentPage(1);
-  };
-
   return (
-    <div className="containerHome">
+    <div>
       <h1>The Gamers' Hub, all you need!</h1>
-      <div className="headerContainer">
+      <div>
         <Link to="/form">
-          <button className="createButton">Crear videojuego</button>
+          <button>Crear videojuego</button>
         </Link>
         <button
           onClick={(e) => {
@@ -92,12 +87,9 @@ export default function Home() {
         >
           Recarga los videojuegos
         </button>
-        <button className="filterNew" onClick={(e) => handleClickNew(e)}>
-          Filter
-        </button>
       </div>
 
-      <div classname="allSelect" onChange={(e) => handleSortByName(e)}>
+      <div onChange={(e) => handleSortByName(e)}>
         <select className="select">
           <option value="-">-</option>
           <option value="A-Z">A-Z</option>
@@ -105,7 +97,7 @@ export default function Home() {
         </select>
         <select className="select" onChange={(e) => handleSortByRating(e)}>
           <option value="-">-</option>
-          <option value="asc">Ascendente</option>
+          <option value="ascendente">Ascendente</option>
           <option value="desc">Descendente</option>
         </select>
         <select className="select" onChange={(e) => handleFilterApiDb(e)}>
@@ -125,20 +117,22 @@ export default function Home() {
 
       <SearchBar setCurrentPage={setCurrentPage} />
 
-      <div className="cards">
-        {currentGames?.map((e) => {
-          return (
-            <Link key={e.id} to={`/videogames/${e.id}`}>
-              <Card
-                name={e.name}
-                image={e.image}
-                genres={e.genres}
-                rating={e.rating}
-              />
-            </Link>
-          );
-        })}
-      </div>
+      <section>
+        <div className={s.cards}>
+          {currentGames?.map((e) => {
+            return (
+              <Link key={e.id} to={`/videogames/${e.id}`}>
+                <Card
+                  name={e.name}
+                  image={e.background_image}
+                  genres={e.genres}
+                  rating={e.rating}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      </section>
 
       <div className="page">
         <Page

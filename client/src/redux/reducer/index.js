@@ -37,22 +37,22 @@ function rootReducer(state = initialState, action) {
       let sort = state.videogamesCopy;
       if (action.payload !== "-") {
         sort =
-          action.payload === "higher"
+          action.payload === "ascendente"
             ? state.videogames.sort((a, b) => {
-                if (a.rating > b.rating) {
+                if (a.rating < b.rating) {
                   return -1;
                 }
-                if (b.rating > a.rating) {
+                if (b.rating < a.rating) {
                   return 1;
                 }
                 return 0;
               })
             : state.videogames.sort((a, b) => {
                 if (a.rating > b.rating) {
-                  return 1;
+                  return -1;
                 }
                 if (b.rating > a.rating) {
-                  return -1;
+                  return 1;
                 }
                 return 0;
               });
