@@ -1,7 +1,25 @@
-/* .cards{
+
+
+.cards{
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 10px;
         grid-row-gap: 10px;  
-} */
+}
+
+.tittle{
+    color: white;
+}
+
+.button {
+    background-color: white; 
+    color: black;
+    padding: 12px 20px;
+    text-align: left;
+    text-decoration: none;
+   
+    font-size: 18px;
+    font-family: 'Coda Caption', sans-serif;
+    margin: 5px;
+  }

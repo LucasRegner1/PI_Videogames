@@ -34,40 +34,22 @@ function rootReducer(state = initialState, action) {
       };
 
     case "FILTER_BY_RATING":
-      let sort = state.videogamesCopy;
-      if (action.payload !== "-") {
-        sort =
-          action.payload === "ascendente"
-            ? state.videogames.sort((a, b) => {
-                if (a.rating < b.rating) {
-                  return -1;
-                }
-                if (b.rating < a.rating) {
-                  return 1;
-                }
-                return 0;
-              })
-            : state.videogames.sort((a, b) => {
-                if (a.rating > b.rating) {
-                  return -1;
-                }
-                if (b.rating > a.rating) {
-                  return 1;
-                }
-                return 0;
-              });
-      }
+      const allVideogames2 = state.videogamesCopy;
+      const sorted =
+        action.payload === "Ascendente"
+          ? allVideogames2.sort((a, b) => Number(a.rating) - Number(b.rating))
+          : allVideogames2.sort((a, b) => Number(b.rating) - Number(a.rating));
       return {
         ...state,
-        videogames: sort,
+        videogames: sorted,
       };
 
     case "SORT_BY_NAME":
-      let sort2 = state.videogamesCopy;
+      let sort2 = [...state.videogamesCopy];
       if (action.payload !== "-") {
         sort2 =
           action.payload === "A-Z"
-            ? state.videogames.sort((a, b) => {
+            ? sort2.sort((a, b) => {
                 if (a.name > b.name) {
                   return 1;
                 }
@@ -76,7 +58,7 @@ function rootReducer(state = initialState, action) {
                 }
                 return 0;
               })
-            : state.videogames.sort((a, b) => {
+            : sort2.sort((a, b) => {
                 if (a.name > b.name) {
                   return -1;
                 }
@@ -103,17 +85,6 @@ function rootReducer(state = initialState, action) {
         gameid: action.payload,
       };
 
-    case "FILTER_API_DB":
-      let all = state.videogamesCopy;
-      const created =
-        action.payload === "db"
-          ? all.filter((e) => e.createdInDb)
-          : all.filter((e) => !e.createdInDb);
-      return {
-        ...state,
-        videogames: action.payload === "all" ? state.videogamesCopy : created,
-      };
-
     case "GET_PLATFORMS":
       return {
         ...state,
@@ -125,16 +96,29 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
 
-    case "FILTER_NEW":
-      let toFilter = state.videogamesCopy;
-      let newfiltered = toFilter.filter((e) => e.reviews_text_count > 40);
-      return {
-        ...state,
-        videogames: newfiltered,
-      };
-
     default:
       return { ...state };
+
+    case "FILTER_API_DB":
+      if (action.payload === "API") {
+        return {
+          ...state,
+          videogames: [
+            ...state.videogamesCopy.filter(
+              (game) => typeof game.id === "number"
+            ),
+          ],
+        };
+      } else if (action.payload === "DB") {
+        return {
+          ...state,
+          videogames: [
+            ...state.videogamesCopy.filter(
+              (game) => typeof game.id === "string"
+            ),
+          ],
+        };
+      }
   }
 }
 

@@ -1,6 +1,10 @@
+.body{
+  margin-top: 400px;
+  background-color: white;
+}
 
 .title{
-    color: white;
+    color: black;
     text-align: center;
     font-family: 'Coda Caption', sans-serif;
     font-weight: 800;
@@ -28,4 +32,8 @@
     display: inline-block;
     font-size: 18px;
     font-family: 'Coda Caption', sans-serif;
+    
+
+   
   }
+

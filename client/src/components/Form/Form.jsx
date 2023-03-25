@@ -9,6 +9,7 @@ import {
 } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Nav from "../Nav/Nav";
+import s from "../Form/Form.module.css";
 
 const validate = (input) => {
   let errors = {};
@@ -119,8 +120,8 @@ function Form() {
   };
 
   return (
-    <div className="containerForm">
-      <div className="navContainer">
+    <div className={s.form}>
+      <div>
         <Link className="nav" to="/videogames">
           <Nav />
         </Link>
@@ -129,9 +130,10 @@ function Form() {
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
         <div className="formContainer">
           <div className="name formInput">
-            <label>Nombre:</label>
+            <label className={s.form__label}>Nombre:</label>
+            <br />
             <input
-              className="inputName"
+              className={s.form__input}
               onChange={(e) => handleChange(e)}
               type="text"
               value={input.name}
@@ -140,9 +142,10 @@ function Form() {
             {errors.name && <p className="error">{errors.name}</p>}
           </div>
           <div className="description formInput">
-            <label>Descripcion:</label>
+            <label className={s.form__label}>Descripcion:</label>
+            <br />
             <input
-              className="inputDescription"
+              className={s.form__input}
               onChange={(e) => handleChange(e)}
               type="text"
               value={input.description}
@@ -153,9 +156,10 @@ function Form() {
             )}
           </div>
           <div className="realesed formInput">
-            <label>Fecha:</label>
+            <label className={s.form__label}>Fecha:</label>
+            <br />
             <input
-              className="inputReleased"
+              className={s.form__input}
               onChange={(e) => handleChange(e)}
               type="date"
               value={input.released}
@@ -163,9 +167,10 @@ function Form() {
             />
           </div>
           <div className="rating formInput">
-            <label>Valoracion:</label>
+            <label className={s.form__label}>Valoracion:</label>
+            <br />
             <input
-              className="inputRating "
+              className={s.form__input}
               onChange={(e) => handleChange(e)}
               type="number"
               min="1"
@@ -175,16 +180,17 @@ function Form() {
             />
           </div>
           <div className="image formInput">
-            <label>Imagen:</label>
+            <label className={s.form__label}>Imagen:</label>
+            <br />
             <input
-              className="inputImage"
+              className={s.form__input}
               onChange={(e) => handleChange(e)}
               type="text"
               value={input.image}
               name="image"
             />
           </div>
-          <p>Generos:</p>
+          <p className={s.form__label}>Generos:</p>
           {
             <select onChange={(e) => handleGenreSelect(e)}>
               {" "}
@@ -196,13 +202,13 @@ function Form() {
                 ))}
             </select>
           }
-          <div className="containerDivGenres">
+          <div className={s.form__input}>
             {input.genres.map((e) => (
               <div className="divGenres" value={e}>
                 <p>{e}</p>
                 <button
                   key={e}
-                  className="buttonX"
+                  className={s.form__button}
                   onClick={() => handleGenresDelete(e)}
                 >
                   X
@@ -210,7 +216,7 @@ function Form() {
               </div>
             ))}
           </div>
-          <p className="pPlatforms">Plataforma:</p>
+          <p className={s.form__label}>Plataforma:</p>
           {
             <select onChange={(e) => handlePlatformSelect(e)}>
               {" "}
@@ -225,7 +231,7 @@ function Form() {
                 <p>{e}</p>
                 <button
                   key={e}
-                  className="buttonX"
+                  className={s.form__button}
                   onClick={() => handlePlatformsDelete(e)}
                 >
                   X
@@ -234,7 +240,7 @@ function Form() {
             ))}
           </div>
         </div>
-        <div className="containerSubmit">
+        <div className={s.form__button}>
           <button className="submit" type="submit">
             Enviar
           </button>

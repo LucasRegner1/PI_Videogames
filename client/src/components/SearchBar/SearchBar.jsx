@@ -2,6 +2,7 @@ import React from "react";
 import { getByName } from "../../redux/actions";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import s from "../SearchBar/SearchBar.module.css";
 
 function SearchBar({ setCurrentPage }) {
   const dispatch = useDispatch();
@@ -20,16 +21,16 @@ function SearchBar({ setCurrentPage }) {
   };
 
   return (
-    <div className="SearchBar">
+    <div className={s.searchbar}>
       <input
-        className="inputSearchbar"
+        className={s.searchbar__input}
         type="text"
         placeholder="Buscar..."
         onChange={(e) => handleInputChange(e)}
       />
       <button
         type="submit"
-        className="searchButton"
+        className={s.searchbar__button}
         onClick={(e) => handleClick(e)}
       >
         Buscar

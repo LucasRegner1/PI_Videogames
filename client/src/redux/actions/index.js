@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getVideogames = () => {
   return async (dispatch) => {
-    let json = await axios("http://localhost:3001/videogames");
+    let json = await axios.get("http://localhost:3001/videogames");
     return dispatch({
       type: "GET_VIDEOGAMES",
       payload: json.data,
@@ -28,6 +28,7 @@ export const filterByGenre = (payload) => {
 };
 
 export const filterByRating = (payload) => {
+  console.log(payload);
   return {
     type: "FILTER_BY_RATING",
     payload,
@@ -54,13 +55,6 @@ export const getByName = (name) => {
     } catch (err) {
       console.log(err);
     }
-  };
-};
-
-export const filterNew = (payload) => {
-  return {
-    type: "FILTER_NEW",
-    payload,
   };
 };
 

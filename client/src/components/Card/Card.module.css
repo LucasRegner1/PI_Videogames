@@ -1,8 +1,31 @@
-/* .card {
-    width: 190px;
-    height: 254px;
-    border-radius: 30px;
-    background: #e0e0e0;
-    box-shadow: 15px 15px 30px #bebebe,
-               -15px -15px 30px #ffffff;
-  } */
+.body {
+    margin-top: 10px;
+    text-decoration: none 
+    
+}
+
+.card{
+    border-radius: 20px;
+    background-color: slategrey;
+    width:300px;
+    height:400px;
+    margin:auto;
+    text-align:center;
+
+  }
+  
+  img{
+    border-radius:50%;
+    display:block;
+    margin-left:auto;
+    margin-right: auto;
+    height:150px;
+    width:150px;
+  }
+  .title{
+    color:#000000;
+    font-size:20px;
+    font-weight:bold;
+
+  }
+

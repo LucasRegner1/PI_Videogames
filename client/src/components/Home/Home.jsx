@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getVideogames());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     dispatch(getGenres());
@@ -41,46 +41,42 @@ export default function Home() {
   };
 
   const handleClick = (e) => {
-    e.preventDefault();
     dispatch(getVideogames());
   };
 
   const handleSortByName = (e) => {
-    e.preventDefault();
     dispatch(sortByName(e.target.value));
     setCurrentPage(1);
     setOrder(`Order ${e.target.value}`);
   };
 
   const handleSortByRating = (e) => {
-    e.preventDefault();
     dispatch(filterByRating(e.target.value));
     setCurrentPage(1);
     setOrder(`Order ${e.target.value}`);
   };
 
   const handleFilterByGenre = (e) => {
-    e.preventDefault();
     dispatch(filterByGenre(e.target.value));
     setCurrentPage(1);
     setOrder(`Order ${e.target.value}`);
   };
 
   const handleFilterApiDb = (e) => {
-    e.preventDefault();
     dispatch(filterApiDb(e.target.value));
     setCurrentPage(1);
     setOrder(`Order ${e.target.value}`);
   };
 
   return (
-    <div>
-      <h1>The Gamers' Hub, all you need!</h1>
+    <div className={s.body}>
+      <h1 className={s.tittle}>The Gamers' Hub, all you need!</h1>
       <div>
         <Link to="/form">
-          <button>Crear videojuego</button>
+          <button className={s.button}>Crear videojuego</button>
         </Link>
         <button
+          className={s.button}
           onClick={(e) => {
             handleClick(e);
           }}
@@ -89,21 +85,21 @@ export default function Home() {
         </button>
       </div>
 
-      <div onChange={(e) => handleSortByName(e)}>
-        <select className="select">
+      <div>
+        <select onChange={(e) => handleSortByName(e)} className="select">
           <option value="-">-</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
         <select className="select" onChange={(e) => handleSortByRating(e)}>
           <option value="-">-</option>
-          <option value="ascendente">Ascendente</option>
-          <option value="desc">Descendente</option>
+          <option value="Ascendente">Ascendente</option>
+          <option value="Descendente">Descendente</option>
         </select>
         <select className="select" onChange={(e) => handleFilterApiDb(e)}>
           <option value="all">Todo</option>
-          <option value="db">Data Base</option>
-          <option value="api">Api</option>
+          <option value="DB">Data Base</option>
+          <option value="API">Api</option>
         </select>
         <select className="select" onChange={(e) => handleFilterByGenre(e)}>
           <option value="All">Todo</option>
@@ -134,7 +130,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="page">
+      <div>
         <Page
           gamesPerPage={gamesPerPage}
           allVideogames={allVideogames.length}
