@@ -9,7 +9,9 @@
 .tittle{
     color: white;
     background-color: #2f346b;
-    padding: 15px 32px;
+   height: 50px;
+  margin-left: 600px;
+  margin-right: 600px;
 }
 
 .button {
