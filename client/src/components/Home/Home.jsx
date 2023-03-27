@@ -86,22 +86,22 @@ export default function Home() {
       </div>
 
       <div>
-        <select onChange={(e) => handleSortByName(e)} className="select">
+        <select onChange={(e) => handleSortByName(e)} className={s.select}>
           <option value="-">-</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
-        <select className="select" onChange={(e) => handleSortByRating(e)}>
+        <select className={s.select} onChange={(e) => handleSortByRating(e)}>
           <option value="-">-</option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
         </select>
-        <select className="select" onChange={(e) => handleFilterApiDb(e)}>
+        <select className={s.select} onChange={(e) => handleFilterApiDb(e)}>
           <option value="all">Todo</option>
           <option value="DB">Data Base</option>
           <option value="API">Api</option>
         </select>
-        <select className="select" onChange={(e) => handleFilterByGenre(e)}>
+        <select className={s.select} onChange={(e) => handleFilterByGenre(e)}>
           <option value="All">Todo</option>
           {genres.map((g) => (
             <option key={g.id} value={g.name}>

@@ -1,0 +1,22 @@
+.container{
+    background-color: #2d2d65;
+   border-radius: 120px;
+   height: 750px;
+   margin-left: 250px;
+    margin-right: 250px;
+   
+}
+
+.title{
+    color: white;
+}
+
+.description{
+    color: white;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 1200px;
+    width: 1200px;
+    margin-left: 90px;
+    font-size: 20px;
+}

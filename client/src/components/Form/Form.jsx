@@ -120,32 +120,32 @@ function Form() {
   };
 
   return (
-    <div className={s.form}>
+    <div className={s.body}>
       <div>
-        <Link className="nav" to="/videogames">
+        <Link to="/videogames">
           <Nav />
         </Link>
       </div>
-      <h1 className="title">CREAR VIDEOJUEGO</h1>
-      <form className="form" onSubmit={(e) => handleSubmit(e)}>
-        <div className="formContainer">
-          <div className="name formInput">
+      <h1 className={s.title}>CREAR VIDEOJUEGO</h1>
+      <form className={s.form} onSubmit={(e) => handleSubmit(e)}>
+        <div className={s.inputContainer}>
+          <div>
             <label className={s.form__label}>Nombre:</label>
             <br />
             <input
-              className={s.form__input}
+              className={s.input}
               onChange={(e) => handleChange(e)}
               type="text"
               value={input.name}
               name="name"
             />
-            {errors.name && <p className="error">{errors.name}</p>}
+            {errors.name && <p>{errors.name}</p>}
           </div>
-          <div className="description formInput">
+          <div>
             <label className={s.form__label}>Descripcion:</label>
             <br />
             <input
-              className={s.form__input}
+              className={s.input}
               onChange={(e) => handleChange(e)}
               type="text"
               value={input.description}
@@ -155,22 +155,22 @@ function Form() {
               <p className="error">{errors.description}</p>
             )}
           </div>
-          <div className="realesed formInput">
+          <div>
             <label className={s.form__label}>Fecha:</label>
             <br />
             <input
-              className={s.form__input}
+              className={s.input}
               onChange={(e) => handleChange(e)}
               type="date"
               value={input.released}
               name="released"
             />
           </div>
-          <div className="rating formInput">
+          <div>
             <label className={s.form__label}>Valoracion:</label>
             <br />
             <input
-              className={s.form__input}
+              className={s.input}
               onChange={(e) => handleChange(e)}
               type="number"
               min="1"
@@ -179,11 +179,11 @@ function Form() {
               name="rating"
             />
           </div>
-          <div className="image formInput">
+          <div>
             <label className={s.form__label}>Imagen:</label>
             <br />
             <input
-              className={s.form__input}
+              className={s.input}
               onChange={(e) => handleChange(e)}
               type="text"
               value={input.image}
@@ -202,9 +202,9 @@ function Form() {
                 ))}
             </select>
           }
-          <div className={s.form__input}>
+          <div className={s.input}>
             {input.genres.map((e) => (
-              <div className="divGenres" value={e}>
+              <div value={e}>
                 <p>{e}</p>
                 <button
                   key={e}
@@ -225,9 +225,9 @@ function Form() {
               ))}
             </select>
           }
-          <div className="containterDivPlatforms">
+          <div>
             {input.platforms.map((e) => (
-              <div className="divPlatform" value={input.platforms}>
+              <div value={input.platforms}>
                 <p>{e}</p>
                 <button
                   key={e}
@@ -240,8 +240,8 @@ function Form() {
             ))}
           </div>
         </div>
-        <div className={s.form__button}>
-          <button className="submit" type="submit">
+        <div>
+          <button className={s.submit} type="submit">
             Enviar
           </button>
         </div>

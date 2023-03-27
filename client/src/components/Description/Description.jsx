@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getById } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import { Link } from "react-router-dom";
+import s from "../Description/Description.module.css";
 
 function Description(prop) {
   const dispatch = useDispatch();
@@ -27,40 +28,33 @@ function Description(prop) {
   }
 
   return (
-    <div className="container">
+    <div>
       <Link to="/videogames">
-        <div className="descriptionNav">
+        <div>
           <Nav />
         </div>
       </Link>
 
-      <div className="generalContainer">
-        <div className="containerDetailTitle">
-          <h1 className="detailTitle">DETALLES</h1>
+      <div className={s.container}>
+        <div>
+          <h1 className={s.title}>DETALLES</h1>
         </div>
         {
           <div className="descriptionContainer">
-            {console.log("div2")}
             <div className="imgContainer">
-              <h1 className="videogameName">{videogame.name}</h1>
-              <h3 className="ratingDetail general">
-                Popularidad: {videogame.rating}
-              </h3>
-              <h4 className="genresDetail general">{genres}</h4>
-              <h4 className="platformDetail general">{platforms}</h4>
+              <h1 className={s.title}>{videogame.name}</h1>
+              <h3 className={s.title}>Popularidad: {videogame.rating}</h3>
+              <h4 className={s.title}>{genres}</h4>
+              <h4 className={s.title}>{platforms}</h4>
               <img
                 className="imageDetail"
                 src={videogame.image}
                 alt={videogame.name}
               />
-              <p className="releasedDetail general">
-                Fecha: {videogame.released}
-              </p>
+              <p className={s.title}>Fecha: {videogame.released}</p>
             </div>
-            <div className="detailContainer">
-              <p className="descriptionDetail general">
-                {videogame?.description?.replace(/<[^>]*>?/g, "")}
-              </p>
+            <div className={s.description}>
+              <p>{videogame?.description?.replace(/<[^>]*>?/g, "")}</p>
             </div>
           </div>
         }

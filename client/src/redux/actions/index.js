@@ -80,22 +80,37 @@ export const filterApiDb = (payload) => {
   };
 };
 
-export const postVideogame = (payload) => {
-  return async (dispatch) => {
-    try {
-      const json = await axios.post(
-        "http://localhost:3001/videogames",
-        payload
-      );
-      return dispatch({
-        type: "POST_VIDEOGAME",
-        payload: json.data,
-      });
-    } catch (err) {
-      console.log(err);
-    }
+// export const postVideogame = (payload) => {
+//   return async (dispatch) => {
+//     try {
+//       const json = await axios.post(
+//         "http://localhost:3001/videogames",
+//         payload
+//       );
+//       return dispatch({
+//         type: "POST_VIDEOGAME",
+//         payload: json.data,
+//       });
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   };
+// };
+
+export function postVideogame(payload) {
+  return function (dispatch) {
+    axios
+      .post("http://localhost:3001/videogames", payload)
+      .then((response) => response.data)
+      .then((data) =>
+        dispatch({
+          type: "POST_VIDEOGAME",
+          payload: data,
+        })
+      )
+      .catch((error) => error.data);
   };
-};
+}
 
 export const getPlatforms = () => {
   return async (dispatch) => {
