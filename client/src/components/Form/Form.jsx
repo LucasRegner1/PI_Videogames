@@ -196,7 +196,7 @@ function Form() {
               {" "}
               {genres &&
                 genres.map((g) => (
-                  <option value={g.id} key={g.id}>
+                  <option value={g.name} key={g.id}>
                     {g.name}
                   </option>
                 ))}

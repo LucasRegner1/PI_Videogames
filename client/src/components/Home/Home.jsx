@@ -69,7 +69,7 @@ export default function Home() {
   };
 
   return (
-    <div className={s.body}>
+    <div>
       <h1 className={s.tittle}>The Gamers' Hub, all you need!</h1>
       <div>
         <Link to="/form">

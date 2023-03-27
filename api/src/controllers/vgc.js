@@ -55,27 +55,30 @@ const getId = async (id) => {
     )
   ) {
     try {
-      let dbID = await Videogame.findByPk(id, {
-        include: [
-          {
-            model: Genre,
-            attributes: ["name"],
-            through: {
-              atributes: [],
+      let dbID = await Videogame.findOne(
+        { id: id },
+        {
+          include: [
+            {
+              model: Genre,
+              attributes: ["name"],
+              through: {
+                atributes: [],
+              },
             },
-          },
-        ],
-        attributes: [
-          "id",
-          "name",
-          "description",
-          "released",
-          "rating",
-          "image",
-          "createdInDb",
-          "platform",
-        ],
-      });
+          ],
+          attributes: [
+            "id",
+            "name",
+            "description",
+            "released",
+            "rating",
+            "image",
+            "createdInDb",
+            "platform",
+          ],
+        }
+      );
       return dbID;
     } catch (err) {
       console.log(err);

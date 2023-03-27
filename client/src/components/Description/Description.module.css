@@ -1,7 +1,7 @@
 .container{
     background-color: #2d2d65;
    border-radius: 120px;
-   height: 750px;
+   height: 800px;
    margin-left: 250px;
     margin-right: 250px;
    
@@ -18,5 +18,5 @@
     height: 1200px;
     width: 1200px;
     margin-left: 90px;
-    font-size: 20px;
+    font-size: 18px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import s from "../Page/Page.module.css";
 
 function Page({ gamesPerPage, allVideogames, page }) {
   const pageNum = [];
@@ -9,11 +10,11 @@ function Page({ gamesPerPage, allVideogames, page }) {
     pageNum.push(i);
   }
   return (
-    <nav className="containerPage">
-      <ul className="page">
+    <nav>
+      <ul className={s.container}>
         {pageNum?.map((n) => (
-          <li className="number" key={n}>
-            <button className="pageButton" onClick={() => page(n)}>
+          <li className={s.subcontainer} key={n}>
+            <button className={s.button} onClick={() => page(n)}>
               {n}
             </button>
           </li>

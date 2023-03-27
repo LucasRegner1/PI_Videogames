@@ -102,6 +102,7 @@ export function postVideogame(payload) {
     axios
       .post("http://localhost:3001/videogames", payload)
       .then((response) => response.data)
+      .then((data) => console.log(data))
       .then((data) =>
         dispatch({
           type: "POST_VIDEOGAME",

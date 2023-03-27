@@ -35,6 +35,8 @@ function Description(prop) {
         </div>
       </Link>
 
+      {console.log(videogame)}
+
       <div className={s.container}>
         <div>
           <h1 className={s.title}>DETALLES</h1>
@@ -43,6 +45,7 @@ function Description(prop) {
           <div className="descriptionContainer">
             <div className="imgContainer">
               <h1 className={s.title}>{videogame.name}</h1>
+              <h3 className={s.title}> ID: {videogame.id}</h3>
               <h3 className={s.title}>Popularidad: {videogame.rating}</h3>
               <h4 className={s.title}>{genres}</h4>
               <h4 className={s.title}>{platforms}</h4>
