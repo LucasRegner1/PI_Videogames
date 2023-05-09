@@ -38,6 +38,7 @@ export default function Home() {
 
   const page = (pageNum) => {
     setCurrentPage(pageNum);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   const handleClick = (e) => {
