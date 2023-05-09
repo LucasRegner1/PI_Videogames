@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getVideogames = () => {
   return async (dispatch) => {
-    let json = await axios.get("http://localhost:3001/videogames");
+    let json = await axios.get("https://gamershub.onrender.com/videogames");
     return dispatch({
       type: "GET_VIDEOGAMES",
       payload: json.data,
@@ -12,7 +12,7 @@ export const getVideogames = () => {
 
 export const getGenres = () => {
   return async (dispatch) => {
-    let json = await axios.get("http://localhost:3001/genres");
+    let json = await axios.get("https://gamershub.onrender.com/genres");
     return dispatch({
       type: "GET_GENRES",
       payload: json.data,
@@ -46,7 +46,7 @@ export const getByName = (name) => {
   return async (dispatch) => {
     try {
       const json = await axios.get(
-        `http://localhost:3001/videogames?name=${name}`
+        `https://gamershub.onrender.com/videogames?name=${name}`
       );
       return dispatch({
         type: "GET_BY_NAME",
@@ -61,7 +61,9 @@ export const getByName = (name) => {
 export const getById = (id) => {
   return async (dispatch) => {
     try {
-      const json = await axios.get(`http://localhost:3001/videogames/${id}`);
+      const json = await axios.get(
+        `https://gamershub.onrender.com/videogames/${id}`
+      );
       console.log(json.data);
       return dispatch({
         type: "GET_BY_ID",
@@ -80,27 +82,10 @@ export const filterApiDb = (payload) => {
   };
 };
 
-// export const postVideogame = (payload) => {
-//   return async (dispatch) => {
-//     try {
-//       const json = await axios.post(
-//         "http://localhost:3001/videogames",
-//         payload
-//       );
-//       return dispatch({
-//         type: "POST_VIDEOGAME",
-//         payload: json.data,
-//       });
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
-// };
-
 export function postVideogame(payload) {
   return function (dispatch) {
     axios
-      .post("http://localhost:3001/videogames", payload)
+      .post("https://gamershub.onrender.com/videogames", payload)
       .then((response) => response.data)
       .then((data) => console.log(data))
       .then((data) =>
@@ -115,7 +100,7 @@ export function postVideogame(payload) {
 
 export const getPlatforms = () => {
   return async (dispatch) => {
-    let json = await axios.get("http://localhost:3001/platforms");
+    let json = await axios.get("https://gamershub.onrender.com/platforms");
     console.log(json.data);
     return dispatch({
       type: "GET_PLATFORMS",
